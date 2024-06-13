@@ -9,28 +9,51 @@ generator client {
 }
 
 datasource db {
-  provider = "mongodb"
+  provider = "mysql"
   url      = env("DATABASE_URL")
 }
 
+// model User { 
+//   id String @id @default(auto()) @map("_id") @db.ObjectId
+//   email String @unique
+//   username String @unique
+//   password String
+//   createdAt DateTime @default(now())
+// }
+
+
+// model Employee {
+
+//   recid       String   @id @default(auto()) @map("_id") @db.ObjectId
+//   fullname    String
+//   address     String
+//   birthdate   DateTime
+//   age         Int
+//   gender      String
+//   civilstat   String
+//   contactnum  String
+//   salary      Float
+//   isactive    Boolean
+// }
+
 model User { 
-  id String @id @default(auto()) @map("_id") @db.ObjectId
-  email String @unique
-  username String @unique
-  password String
+  id        Int      @id @default(autoincrement())
+  email     String   @unique
+  username  String   @unique
+  password  String
   createdAt DateTime @default(now())
 }
 
 
 model Employee {
-  recid       String   @id @default(auto()) @map("_id") @db.ObjectId
-  fullname    String
-  address     String
-  birthdate   DateTime
-  age         Int
-  gender      String
-  civilstat   String
-  contactnum  String
-  salary      Float
-  isactive    Boolean
+  recid      Int      @id @default(autoincrement())
+  fullname   String
+  address    String
+  birthdate  DateTime
+  age        Int
+  gender     String
+  civilstat  String
+  contactnum String
+  salary     Float
+  isactive   Boolean
 }

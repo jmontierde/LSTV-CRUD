@@ -88,7 +88,7 @@ const EmployeeRead = () => {
                   >
                     Delete
                   </Button>
-                </div>
+                </div>t
               </Table.RowHeaderCell>
             </Table.Row>
           ))}

@@ -43,7 +43,7 @@ export const registerUser = createAsyncThunk<void, RegisterUserData>(
   "user/registerUser",
   async (userData, { rejectWithValue }) => {
     try {
-      const response = await apiRequest.post(`/api/auth/register`, userData);
+      const response = await apiRequest.post(`/auth/register`, userData);
       return response.data;
     } catch (error) {
       if (axios.isAxiosError(error)) {

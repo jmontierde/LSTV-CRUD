@@ -1,5 +1,5 @@
 import prisma from "../lib/prisma.js";
-// Create a new employee
+
 export const createEmployee = async (req, res) => {
   const {
     fullname,
@@ -52,7 +52,7 @@ export const getEmployeeById = async (req, res) => {
 
   try {
     const employee = await prisma.employee.findUnique({
-      where: { recid: id },
+      where: { recid: parseInt(id, 10) },
     });
 
     if (!employee) {
@@ -83,7 +83,7 @@ export const updateEmployee = async (req, res) => {
 
   try {
     const updatedEmployee = await prisma.employee.update({
-      where: { recid: id },
+      where: { recid: parseInt(id, 10) },
       data: {
         fullname,
         address,
@@ -110,7 +110,7 @@ export const deleteEmployee = async (req, res) => {
 
   try {
     await prisma.employee.delete({
-      where: { recid: id },
+      where: { recid: parseInt(id, 10) },
     });
 
     res.status(200).json({ message: "Employee deleted successfully" });

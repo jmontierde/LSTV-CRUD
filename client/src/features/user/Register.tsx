@@ -24,9 +24,9 @@ const Register = () => {
       toast.error(error);
     }
     if (isAuthenticated && !successDisplayed) {
-      //   toast.success("You've successfully created an account");
+      toast.success("You've successfully created an account");
       setSuccessDisplayed(true); // Update the state to indicate success message has been displayed
-      // navigate("/login");
+      navigate("/login");
     }
   }, [error, navigate, isAuthenticated, successDisplayed]);
 
